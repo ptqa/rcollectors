@@ -7,8 +7,8 @@ redis:
       cmd:  llen
       args: clientbeholdindex
       tags:
-        - sometag
-        - sometag2
+        - sometag: testme
+        - sometag2: tesmeagain
     - name: anothercmd
       cmd:  lpop
       args: clientbeholdindex

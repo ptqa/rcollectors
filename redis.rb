@@ -1,9 +1,10 @@
+#!/usr/local/rvm/rubies/ruby-2.1.1/bin/ruby
 require 'redis'
 require 'yaml'
 require_relative 'common.rb'
 
 def load_config()
-  return symbolize_keys(YAML.load_file('config.yml'))
+  return symbolize_keys(YAML.load_file('/etc/scollector/collectors/config.yml'))
 end
 
 def main()
@@ -14,8 +15,8 @@ def main()
   begin
     config[:metrics].each do |metric|
       taglist = ''
-      metric[:tags].each_with_index do |tag,i|
-        taglist += "tag#{i} = #{tag} "
+      metric[:tags].each do |tag,value|
+        taglist += "#{tag}=#{value} "
       end if metric[:tags]
       puts "redis.#{metric[:name]}  #{Time.now.to_i} #{redis_conn.send(metric[:cmd],metric[:args])} #{taglist}"
     end
