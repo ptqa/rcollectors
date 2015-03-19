@@ -1,0 +1,14 @@
+---
+redis:
+  host: 127.1
+  port: 6379
+  metrics:
+    - name: somecmd
+      cmd:  llen
+      args: clientbeholdindex
+      tags:
+        - sometag
+        - sometag2
+    - name: anothercmd
+      cmd:  lpop
+      args: clientbeholdindex
