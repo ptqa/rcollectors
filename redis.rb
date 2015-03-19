@@ -1,4 +1,4 @@
-#!/usr/local/rvm/rubies/ruby-2.1.1/bin/ruby
+#!/usr/bin/env ruby
 require 'redis'
 require 'yaml'
 require_relative 'common.rb'
