@@ -1,3 +1,1 @@
-Collection of ruby collectors for scollector
-
-Check latest version at https://github.com/onetwotrip/rcollectors
+Moved to https://github.com/onetwotrip/rcollectors
